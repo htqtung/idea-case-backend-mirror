@@ -248,7 +248,6 @@ category.put("/", function(req, res) {
 
 export default category;
 
-
 /* Post e.g. the JSON from below in the POST body
 {
 	"name": "Jamborees",
