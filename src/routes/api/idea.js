@@ -1,17 +1,9 @@
-<<<<<<< HEAD
-    
 import express from "express";
 import knex from "../../db/index";
 import { IDEA_CODE } from "../../ERROR_CODES";
 
 const idea = express.Router();
 
-=======
-import express from "express";
-import knex from "../../db/index";
-import { IDEA_CODE } from "../../ERROR_CODES";
-const idea = express.Router();
->>>>>>> 8e81776761618ebaf865e8eff0afd23e1dac9ff8
 // GET ALL
 // http://localhost:8787/api/idea/all METHOD = GET
 idea.get("/all", function(req, res) {
@@ -31,10 +23,7 @@ idea.get("/all", function(req, res) {
         .end();
     });
 });
-<<<<<<< HEAD
 
-=======
->>>>>>> 8e81776761618ebaf865e8eff0afd23e1dac9ff8
 //GET ONE
 //http://localhost:8787/api/idea/:id METHOD = GET
 //Example: http://localhost:8787/api/idea/1004

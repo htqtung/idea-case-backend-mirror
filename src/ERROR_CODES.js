@@ -1,5 +1,4 @@
 const IDEA_CODE = {
-<<<<<<< HEAD
     IDEA_OK: 100,
     IDEA_NAME_MISSING: 101,
     IDEA_DESC_MISSING: 102,
@@ -9,14 +8,3 @@ const IDEA_CODE = {
   };
   
   export { IDEA_CODE };
-=======
-  IDEA_OK: 100,
-  IDEA_NAME_MISSING: 101,
-  IDEA_DESC_MISSING: 102,
-  IDEA_BUDGET_INVALID: 103,
-  IDEA_COMMENT_STATUS_MISSING: 104,
-  IDEA_PEOPLE_INVALID: 105
-};
-
-export { IDEA_CODE };
->>>>>>> 8e81776761618ebaf865e8eff0afd23e1dac9ff8
