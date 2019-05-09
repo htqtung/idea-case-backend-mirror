@@ -7,7 +7,6 @@ const category = express.Router();
 /** http://localhost:8787/api/category/all    with method=GET **/
 
 category.get("/all", function(req, res) {
-  console.log('asd')
   knex
     .select()
     .from("Category")

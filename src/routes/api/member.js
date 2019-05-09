@@ -1,57 +1,7 @@
 import express from "express";
 import knex from "../../db/index";
-import bodyParser from "body-parser";
 
-import { FIREBASE_SETTINGS } from '../../CONSTANTS';
-import * as admin from 'firebase-admin';
-const serviceAccount = FIREBASE_SETTINGS;
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://case2019k.firebaseio.com"
-});
-
-// is this ok?
 const member = express.Router();
-member.use(bodyParser.json());
-member.use(bodyParser.urlencoded({ extended: true }));
-
-// check if the email exists in the database. if it does; register the user
-// http://localhost/8787/member/register
-
-member.post("/register", function (req, res) {
-	const email = req.body.account.email.length > 0 ? req.body.account.email : undefined;
-	const password = req.body.account.password.length > 0 ? req.body.account.password : undefined;
-	const firstname = req.body.account.firstname.length > 0 ? req.body.account.firstname : undefined;
-	const surname = req.body.account.surname.length > 0 ? req.body.account.surname : undefined;
-
-	if (email && password && firstname && surname) {
-		knex.select().from("Member").where("email", email)
-		.then((data) => {
-			if (data.length !== 0) { // if the email exists, allow firebase registration
-				admin.auth().createUser({
-					email: email,
-					password: password,
-				})
-					.then((result) => {
-						console.log(result);
-						res.status(200).send(result.email + " successfully registered!").end();
-					})
-					.catch((error) => {
-						res.status(500).send('Firebase error: ' + error.message).end();
-					});
-			} else {
-				res.status(409).send("Error: Email does not exist: " + email).end();
-			}
-		})
-		.catch((error) => {
-			console.log(error.message);
-			res.status(500).send("Database error: " + error.errno).end();
-		});
-	} else {
-		res.status(400).send('Missing required information!').end();
-	}
-});
-
 
 //GET all members
 // http://localhost:8787/api/member/all

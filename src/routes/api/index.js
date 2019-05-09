@@ -6,6 +6,7 @@ import comment from './comment';
 import idea from './idea';
 import ideaMember from './ideaMember';
 import member from './member';
+import auth from './auth';
 
 const routes = express.Router(); 
 routes.use('/reset_service', reset_service);
@@ -14,5 +15,6 @@ routes.use('/comment', comment);
 routes.use('/idea', idea);
 routes.use('/ideaMember', ideaMember);
 routes.use('/member', member);
+routes.use('/auth', auth);
 
 export default routes;
