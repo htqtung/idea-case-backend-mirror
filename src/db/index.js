@@ -1,5 +1,5 @@
 import knex from 'knex';
-import {DB_SETTINGS} from '../CONSTANTS';
+import { DB_SETTINGS } from '../CONSTANTS';
 
 // initiate knex with config
 export default knex({
